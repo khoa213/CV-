@@ -26,7 +26,7 @@
 url="jdbc:sqlserver://localhost:1433;instance=sqlexpress;databaseName=ShoppingDB;encrypt=true;trustServerCertificate=true;integratedSecurity=true;"
 />
 <sql:query dataSource="${db}" sql="select * from Products where product_id =?" var="rs">
-<sql:param>1</sql:param>
+<sql:param>${param.id }</sql:param>
 </sql:query>
 
 <table>
@@ -40,6 +40,7 @@ url="jdbc:sqlserver://localhost:1433;instance=sqlexpress;databaseName=ShoppingDB
                     <img src=<c:out value="${table.product_img_source}"></c:out> alt="iPhone">
                     <p class="text-muted"><c:out value="${table.product_type}"></c:out></p>
                     <P class="text-primary"><c:out value="${table.product_name}"></c:out></P>
+                    <p><c:out value="${table.product_des}"></c:out></p>
                     <p class="text-danger">$<c:out value="${table.product_price}"></c:out></p>
                 </div>
               </td>

@@ -55,10 +55,10 @@ select * from Products
 
 
 
-<c:set scope="application" var="ID " value="1"></c:set>
+<!--<c:set scope="application" var="ID " value="1"></c:set>
 
-<c:out value="${ID }"></c:out>
-<a href="product.jsp">
+<c:out value="${ID }"></c:out>-->
+<a href="product.jsp?id=${table.product_id }">
 <div class=" text-center">
                     <img src=<c:out value="${table.product_img_source}"></c:out> alt="iPhone">
                     <p class="text-muted"><c:out value="${table.product_type}"></c:out></p>
