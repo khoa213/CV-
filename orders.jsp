@@ -25,34 +25,28 @@
 <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 url="jdbc:sqlserver://localhost:1433;instance=sqlexpress;databaseName=ShoppingDB;encrypt=true;trustServerCertificate=true;integratedSecurity=true;"
 />
-<sql:query dataSource="${db}" sql="select * from Products where product_id =?" var="rs">
-<sql:param>${param.id }</sql:param>
+<sql:query dataSource="${db}" sql="select * from Orders" var="rs">
 </sql:query>
-
 <table>
-<c:set var="tablewidth" value="3"></c:set>
-<c:forEach var="table" items="${rs.rows}" varStatus="row">
-<c:if test="${row.index % tablewidth == 0 }">
 <tr>
-</c:if>
-<td>
-<div class=" text-center">
-                    <img src=<c:out value="${table.product_img_source}"></c:out> alt="iPhone">
-                    <p class="text-muted"><c:out value="${table.product_type}"></c:out></p>
-                    <P class="text-primary"><c:out value="${table.product_name}"></c:out></P>
-                    <p><c:out value="${table.product_des}"></c:out></p>
-                    <p class="text-danger">$<c:out value="${table.product_price}"></c:out></p>
-                    <!--  <form action="cart.jsp?ID=${table.product_id }">-->
-                    <a href="cart.jsp?ID=${table.product_id }">
-                    
-                    <button type="submit" class="btn btn-primary">Add to cart</button>
-                    </a>
-                    <!--</form>-->
-                </div>
-              </td>
-  <c:if test="${row.index + 1 % tablewidth == 0 }">
-  </tr>
-  </c:if>
+<td>Email</td>
+<td>Order date</td>
+<td>Discount code</td>
+<td>Address</td>
+<td>Product id</td>
+<td>Amount</td>
+<td>Price</td>
+</tr>
+<c:forEach var="table" items="${rs.rows}" varStatus="row">
+<tr>
+<td><c:out value="${table.user_mail}"></c:out></td>
+<td><c:out value="${table.order_date}"></c:out></td>
+<td><c:out value="${table.order_discount_code}"></c:out></td>
+<td><c:out value="${table.order_address}"></c:out></td>
+<td><c:out value="${table.product_id}"></c:out></td>
+<td><c:out value="${table.amount_product}"></c:out></td>
+<td><c:out value="${table.price_product}"></c:out></td>
+</tr>
 </c:forEach>
 </table>
 <jsp:include page="footer.html"></jsp:include>

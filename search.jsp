@@ -37,12 +37,14 @@ url="jdbc:sqlserver://localhost:1433;instance=sqlexpress;databaseName=ShoppingDB
 <tr>
 </c:if>
 <td>
+<a href="product.jsp?id=${table.product_id }">
 <div class=" text-center">
                     <img src=<c:out value="${table.product_img_source}"></c:out> alt="iPhone">
                     <p class="text-muted"><c:out value="${table.product_type}"></c:out></p>
                     <P class="text-primary"><c:out value="${table.product_name}"></c:out></P>
                     <p class="text-danger">$<c:out value="${table.product_price}"></c:out></p>
                 </div>
+                </a>
               </td>
   <c:if test="${row.index + 1 % tablewidth == 0 }">
   </tr>
