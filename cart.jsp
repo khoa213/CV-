@@ -68,9 +68,9 @@ insert into Orders (user_mail,order_discount_code,order_address,product_id,amoun
 <sql:param>${param.address }</sql:param>
 <sql:param>${param.ID }</sql:param>
 <sql:param>1</sql:param>
-<!--<c:forEach var="table" items="${rs.rows}" varStatus="row">
-<sql:param><c:out value="${table.product_price}"></c:out></sql:param>
-</c:forEach>-->
+<c:forEach var="table" items="${rs.rows}" varStatus="row">
+<sql:param>${table.product_price}</sql:param>
+</c:forEach>
 </sql:update>
 <c:if test="${updatedTable>=1}">
 <font size="5" color='green'> Congratulations ! Data inserted
